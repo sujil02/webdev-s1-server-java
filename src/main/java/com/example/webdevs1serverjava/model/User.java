@@ -6,6 +6,7 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	private Role role;
 
 	public int getId() {
 		return id;
@@ -53,6 +54,25 @@ public class User {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	
+	/**
+	 * @param id
+	 * @param username
+	 * @param password
+	 * @param firstName
+	 * @param lastName
+	 * @param role
+	 */
+	public User(int id, String username, String password, String firstName, String lastName, Role role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.role = role;
 	}
 
 	public User() {
