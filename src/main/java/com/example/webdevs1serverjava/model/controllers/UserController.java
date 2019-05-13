@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.webdevs1serverjava.model.Role;
 import com.example.webdevs1serverjava.model.User;
 
 @RestController
@@ -17,9 +18,9 @@ public class UserController {
 			new User(2, "bob", "bob", "Bob", "The builder"), new User(3, "charlier", "charlier", "Charlier", "Brown") };
 	private ArrayList<User> userArrayList = new ArrayList<User>();
 	public UserController() {
-		userArrayList.add(new User(1, "alice", "alice", "Alice", "Wonderland"));
-		userArrayList.add(new User(2, "bob", "bob", "Bob", "The builder"));
-		userArrayList.add(new User(3, "charlier", "charlier", "Charlier", "Brown"));
+		userArrayList.add(new User(1, "alice", "alice", "Alice", "Wonderland",Role.FACULTY));
+		userArrayList.add(new User(2, "bob", "bob", "Bob", "The builder", Role.ADMIN));
+		userArrayList.add(new User(3, "charlier", "charlier", "Charlier", "Brown",Role.FACULTY));
 		
 	}
 
