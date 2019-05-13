@@ -1,6 +1,6 @@
 
 (function () {
-    var $usernameFld, $passwordFld;
+    var $idFld, $usernameFld, $passwordFld;
     var $removeBtn, $editBtn, $createBtn;
     var $firstNameFld, $lastNameFld;
     var $userRowTemplate, $tbody;
@@ -8,20 +8,61 @@
     $(main);
 
     function main() {
-        $usernameFld = $("#usernameFld");
-        $passwordFld = $("#passwordFld");
-        $("wbdv-remove")
+
+        $createBtn = $(".wbdv-create");
+        $removeBtn = $(".wbdv-remove")
+        //$createBtn.hide();
+        $createBtn.click(function(){
+            var data = createUser();
+            userService.createUser(data);
+        });
+
+        $(document).on('click','.wbdv-remove', function () {
+            var userId = $(this).closest('tr').children('td.wbdv-user-id').text();
+            deleteUser(userId);
+        })
+        $userRowTemplate = $(".wbdv-template");
+        $tbody=$(".wbdv-tbody");
+        findAllUsers();
     }
     function createUser() {
-
+        $usernameFld = $("#usernameFld").val();
+        $passwordFld = $("#passwordFld").val();
+        $firstNameFld = $("#firstNameFld").val();
+        $lastNameFld = $("#lastNameFld").val();
+        console.log("username" + $passwordFld);
+        var user = {
+            "id" : 3,
+            "username" : $usernameFld,
+            "password" : $passwordFld,
+            "firstname" : $firstNameFld,
+            "lastname" : $lastNameFld,
+        }
+        return user;
     }
-    // function findAllUsers() { … }
+     function findAllUsers() {
+         userService
+             .findAllUsers()
+             .then(renderUsers);
+     }
     // function findUserById() { … }
-     function deleteUser() {
-
+     function deleteUser(userId) {
+            userService.deleteUser(userId);
+            window.location.replace("http://localhost:8080/admin/user-admin.template.client.html");
      }
     // function selectUser() { … }
     // function updateUser() { … }
     // function renderUser(user) { … }
-    // function renderUsers(users) { … }
+     function renderUsers(users) {
+        $('table tbody').empty();
+            for(var u=0; u<users.length; u++){
+                var clone = $userRowTemplate.clone();
+                clone.find(".wbdv-user-id").html(users[u].id);
+                clone.find(".wbdv-username").html(users[u].username);
+                clone.find(".wbdv-first-name").html(users[u].firstName);
+                clone.find(".wbdv-last-name").html(users[u].lastName);
+                //clone.find(".wbdv-role").html(users[u].lastName);
+                $tbody.append(clone);
+            }
+     }
 })();
