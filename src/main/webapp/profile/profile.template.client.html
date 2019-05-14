@@ -15,9 +15,9 @@
     <h1>Profile</h1>
     <form class="form-horizontal" action="profile.template.client.html">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="username">Username:</label>
+            <label class="control-label col-sm-2" for="username" >Username:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" disabled >
             </div>
         </div>
         <div class="form-group">
@@ -75,6 +75,26 @@
     function myFunction() {
         alert("Changes Saved.");
     }
+</script>
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+    // Parse the URL parameter
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    // Give the parameter a variable name
+    var dynamicContent = getParameterByName('username');
+
+    $(document).ready(function() {
+
+        $("#username").val(dynamicContent);
+    });
 </script>
 </body>
 </html>
