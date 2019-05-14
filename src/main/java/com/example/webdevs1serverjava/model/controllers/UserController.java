@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,7 +37,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("api/users/{userId}")
-	public List<User> deleteUser(@PathVariable("userId") int userId) {
+	public List<User> deleteUser(@PathVariable("userId") long userId) {
 		User u = null;
 		for (User user : userArrayList) {
 			if (user.getId() == userId) {
@@ -49,8 +50,22 @@ public class UserController {
 
 	@PostMapping("/api/users")
 	public List<User> create(@RequestBody User user) {
-		userArrayList.add(new User(userArrayList.size()+1, user.getUsername(), user.getPassword(), user.getFirstName(),
+		userArrayList.add(new User(user.getId(), user.getUsername(), user.getPassword(), user.getFirstName(),
 				user.getLastName(), user.getRole()));
+		return userArrayList;
+	}
+	
+	@PutMapping("/api/users")
+	public List<User> update(@RequestBody User updateuser) {
+		for (User user : userArrayList) {
+			if (user.getId() == updateuser.getId()) {
+				user.setUsername(updateuser.getUsername());
+				user.setPassword(updateuser.getPassword());
+				user.setLastName(updateuser.getLastName());
+				user.setFirstName(updateuser.getFirstName());
+				user.setRole(updateuser.getRole());
+			}
+		}
 		return userArrayList;
 	}
 }

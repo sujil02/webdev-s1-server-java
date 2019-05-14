@@ -1,18 +1,18 @@
 package com.example.webdevs1serverjava.model;
 
 public class User {
-	private int id;
+	private long id;
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private Role role;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -74,7 +74,7 @@ public class User {
 	 * @param lastName
 	 * @param role
 	 */
-	public User(int id, String username, String password, String firstName, String lastName, Role role) {
+	public User(long id, String username, String password, String firstName, String lastName, Role role) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -84,16 +84,11 @@ public class User {
 		this.role = role;
 	}
 
-	public User() {
-		super();
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
 
@@ -108,15 +103,15 @@ public class User {
 		User other = (User) obj;
 		if (id != other.id)
 			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
 		return true;
 	}
 
-	public User(int id, String username, String password, String firstName, String lastName) {
+	public User() {
+		super();
+	}
+
+
+	public User(long id, String username, String password, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.username = username;
