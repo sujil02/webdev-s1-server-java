@@ -1,0 +1,22 @@
+.main {
+    background: beige;
+}
+.table-Header {
+    background: antiquewhite;
+}
+.course-manger-tag{
+    background: blue;
+    padding: 10px;
+}
+.circle{
+    color: white;
+    background: red;
+    border-radius: 60%;
+    padding: 0.5%;
+    width: 30px;
+    height: 30px;
+}
+
+.mid-pad{
+    padding-left: 50px;
+}
