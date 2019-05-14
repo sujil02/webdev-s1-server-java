@@ -25,7 +25,7 @@
             <h2 >Course Manager</h2>
         </div>
         <div class="col-6">
-            <input  class="form-control" placeholder="Course Name" />
+            <input  class="form-control" placeholder="New Course Title" />
         </div>
         <div class="col">
             <i id="wbdv-create" class="fa-2x fa fa-plus wbdv-create"></i>
@@ -42,7 +42,7 @@
             <th >Delete</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="wbdv-tbody">
         <tr>
             <td class="d-block-inline">
                 <i class="fa fa-book" aria-hidden="true"></i>
@@ -127,7 +127,7 @@
             </td>
         </tr>
         <tr>
-            <td class="d-block-inline">
+            <td class="wbdv-username d-block-inline">
                 <i class="fa fa-book" aria-hidden="true"></i>
                 CS 3500 - Object Oriented Design.
             </td>
@@ -143,6 +143,18 @@
     </table>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    var $userRowTemplate = $(".wbdv-template");
+    var $tbody=$(".wbdv-tbody");
+        for(var u=0; u<3; u++){
+            var clone = $userRowTemplate.clone();
+            clone.find(".wbdv-user-id").html("users[u].id");
+            $tbody.append(clone);
+    }
+</script>
 </body>
 </html>

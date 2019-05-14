@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.webdevs1serverjava.model.Role;
@@ -44,9 +47,10 @@ public class UserController {
 		return userArrayList;
 	}
 
-	@PostMapping(path = "/api/users", consumes = "application/json", 
-			produces = "application/json")
-	public void create(@RequestBody User user) {
-		userArrayList.add(user);
+	@PostMapping("/api/users")
+	public List<User> create(@RequestBody User user) {
+		userArrayList.add(new User(userArrayList.size()+1, user.getUsername(), user.getPassword(), user.getFirstName(),
+				user.getLastName(), user.getRole()));
+		return userArrayList;
 	}
 }

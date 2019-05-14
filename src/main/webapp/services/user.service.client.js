@@ -5,9 +5,8 @@ function AdminUserServiceClient() {
     url = 'http://localhost:8080/api/users';
     createUrl = 'http://localhost:8080/api/users/create';
     var self = this;
-    function createUser(user, callback) {
-        function createUser(user) {
-            return fetch(createUrl, {
+    function createUser(user) {{
+            return fetch(url, {
                 method : 'post',
                 body : JSON.stringify(user),
                 headers : {
@@ -20,7 +19,7 @@ function AdminUserServiceClient() {
         }
     }
     
-    function deleteUser(userId, callback) {
+    function deleteUser(userId) {
         return fetch(url+"/"+userId,{
             method:'delete'
         }).then(response=>

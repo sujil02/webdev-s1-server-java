@@ -14,7 +14,6 @@
         //$createBtn.hide();
         $createBtn.click(function(){
             var data = createUser();
-            userService.createUser(data);
         });
 
         $(document).on('click','.wbdv-remove', function () {
@@ -30,15 +29,14 @@
         $passwordFld = $("#passwordFld").val();
         $firstNameFld = $("#firstNameFld").val();
         $lastNameFld = $("#lastNameFld").val();
-        console.log("username" + $passwordFld);
+        console.log($passwordFld);
         var user = {
-            "id" : 3,
             "username" : $usernameFld,
             "password" : $passwordFld,
-            "firstname" : $firstNameFld,
-            "lastname" : $lastNameFld,
+            "firstName" : $firstNameFld,
+            "lastName" : $lastNameFld,
         }
-        return user;
+        return userService.createUser(user);
     }
      function findAllUsers() {
          userService
