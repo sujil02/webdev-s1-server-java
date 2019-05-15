@@ -20,3 +20,7 @@
 .mid-pad{
     padding-left: 50px;
 }
+.wd-bottom-right {
+    color: red; position: fixed;
+    bottom:10px; right: 10px;
+}
