@@ -3,8 +3,7 @@ function AdminUserServiceClient() {
     this.updateUser = updateUser;
     this.deleteUser = deleteUser;
     this.findAllUsers = findAllUsers;
-    url = 'http://localhost:8080/api/users';
-    createUrl = 'http://localhost:8080/api/users/create';
+    url = 'https://webdev-s1-server-java.herokuapp.com/api/users';
     var self = this;
     function createUser(user) {{
             return fetch(url, {
