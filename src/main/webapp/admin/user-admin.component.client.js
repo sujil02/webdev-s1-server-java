@@ -21,7 +21,7 @@
         $roleFld = $("#roleFld");
         $createBtn.click(function(){
             var data = createUser();
-            window.location.replace("http://localhost:8080/admin/user-admin.template.client.html");
+            window.location.replace("https://webdev-s1-server-java.herokuapp.com/admin/user-admin.template.client.html");
         });
 
 
@@ -36,7 +36,7 @@
             var user = new User(userId,username,password,firstName,lastName,role);
             $updateBtn.click(function(){
                 var data = updateUser();
-                window.location.replace("http://localhost:8080/admin/user-admin.template.client.html");
+                window.location.replace("https://webdev-s1-server-java.herokuapp.com/admin/user-admin.template.client.html");
             });
             renderUser(user);
         })
@@ -71,7 +71,7 @@
     // function findUserById() { … }
      function deleteUser(userId) {
             userService.deleteUser(userId);
-            window.location.replace("http://localhost:8080/admin/user-admin.template.client.html");
+            window.location.replace("https://webdev-s1-server-java.herokuapp.com/admin/user-admin.template.client.html");
      }
     // function selectUser() { … }
      function updateUser() {
