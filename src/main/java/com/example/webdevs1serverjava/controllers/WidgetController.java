@@ -14,7 +14,7 @@ public class WidgetController {
 	static List<Widget> widgets = new ArrayList<Widget>();
 	static {
 		widgets.add(new Widget(123L, "Widget 1", Type.HEADING));
-		widgets.add(new Widget(234L, "Widget 2", Type.LINK));
+		widgets.add(new Widget(234L, "Widget 2", Type.LINK,"Link to gaana.com","https://gaana.com/"));
 		widgets.add(new Widget(345L, "Widget 3", Type.LIST));
 		widgets.add(new Widget(456L, "Widget 4", Type.PARAGRAPH));
 		widgets.add(new Widget(567L, "Widget 5", Type.IMAGE));

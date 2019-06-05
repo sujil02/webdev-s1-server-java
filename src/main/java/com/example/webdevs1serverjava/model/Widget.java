@@ -28,7 +28,16 @@ public class Widget {
         return type;
     }
 
-    public void setType(Type type) {
+    public Widget(Long id, String name, Type type, String text, String srcUrl) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.text = text;
+		this.srcUrl = srcUrl;
+	}
+
+	public void setType(Type type) {
         this.type = type;
     }
 
