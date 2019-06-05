@@ -1,4 +1,4 @@
-package com.example.webdevs1serverjava.model.controllers;
+package com.example.webdevs1serverjava.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
