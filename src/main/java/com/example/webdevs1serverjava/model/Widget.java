@@ -1,7 +1,7 @@
 package com.example.webdevs1serverjava.model;
 
 public class Widget {
-    private Long id;
+    private long id;
     private String name;
     private Type type;
     private int order;
@@ -9,11 +9,11 @@ public class Widget {
     private String srcUrl;
     private String cssClass;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
