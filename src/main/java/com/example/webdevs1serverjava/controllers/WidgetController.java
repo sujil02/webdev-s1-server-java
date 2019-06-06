@@ -13,11 +13,11 @@ import java.util.List;
 public class WidgetController {
 	static List<Widget> widgets = new ArrayList<Widget>();
 	static {
-		widgets.add(new Widget(123L, "Widget 1", Type.HEADING));
-		widgets.add(new Widget(234L, "Widget 2", Type.LINK,"Link to gaana.com","https://gaana.com/"));
-		widgets.add(new Widget(345L, "Widget 3", Type.LIST));
-		widgets.add(new Widget(456L, "Widget 4", Type.PARAGRAPH));
-		widgets.add(new Widget(567L, "Widget 5", Type.IMAGE));
+		widgets.add(new Widget(123L, "Widget 1", Type.HEADING,0,"Heading One","H1"));
+		widgets.add(new Widget(234L, "Widget 2", Type.LINK,5,"Link to gaana.com","https://gaana.com/",""));
+		widgets.add(new Widget(345L, "Widget 3", Type.LIST,8));
+		widgets.add(new Widget(456L, "Widget 4", Type.PARAGRAPH,3,"This is the paragraph text."));
+		widgets.add(new Widget(567L, "Widget 5", Type.IMAGE,7,"","https://picsum.photos/300/200",""));
 	}
 
 	@PostMapping("/api/widgets")
@@ -25,7 +25,11 @@ public class WidgetController {
 		widgets.add(widget);
 		return widgets;
 	}
-
+	@PostMapping("/api/widgets/all")
+	public List<Widget> updateAllWidget(@RequestBody List<Widget> newWidgets) {
+		widgets = newWidgets;
+		return widgets;
+	}
 	@GetMapping("/api/widgets")
 	public List<Widget> findAllWidgets() {
 		return widgets;

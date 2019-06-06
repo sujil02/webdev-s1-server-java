@@ -4,6 +4,7 @@ public class Widget {
     private Long id;
     private String name;
     private Type type;
+    private int order;
     private String text;
     private String srcUrl;
     private String cssClass;
@@ -28,12 +29,13 @@ public class Widget {
         return type;
     }
 
-    public Widget(Long id, String name, Type type, String text, String srcUrl) {
+    public Widget(Long id, String name, Type type,int order, String text, String srcUrl) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
 		this.text = text;
+		this.order =order;
 		this.srcUrl = srcUrl;
 	}
 
@@ -80,26 +82,58 @@ public class Widget {
 	}
 
 	/**
+	 * @return the order
+	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * @param order the order to set
+	 */
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	/**
 	 * @param cssClass the cssClass to set
 	 */
 	public void setCssClass(String cssClass) {
 		this.cssClass = cssClass;
 	}
 
-	public Widget(Long id, String name, Type type) {
+	public Widget(Long id, String name, Type type,int order) {
         this.id = id;
         this.name = name;
         this.type = type;
+        this.order =order;
     }
 
-	public Widget(Long id, String name, Type type, String text, String srcUrl, String cssClass) {
+	public Widget(Long id, String name, Type type, int order,String text, String srcUrl, String cssClass) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.type = type;
+		this.order =order;
 		this.text = text;
 		this.srcUrl = srcUrl;
 		this.cssClass = cssClass;
+	}
+
+	public Widget(long id, String name, Type type, int order, String text, String cssClass) {
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.order =order;
+		this.text = text;
+		this.cssClass=cssClass;
+	}
+	public Widget(long id, String name, Type type, int order, String text) {
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.order =order;
+		this.text = text;
 	}
     
 }
