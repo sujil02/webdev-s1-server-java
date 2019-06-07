@@ -11,10 +11,10 @@ public class WidgetService {
 	static List<Widget> widgets = new ArrayList<Widget>();
 	static {
 		widgets.add(new Widget(123L, "Widget 1", Type.HEADING, 0, "Heading One", "1"));
-		widgets.add(new Widget(234L, "Widget 3", Type.LINK, 1, "Link to gaana.com", "https://gaana.com/", ""));
-		widgets.add(new Widget(345L, "Widget 5", Type.LIST, 2, "This is list text", "This is list text", "UNORDERED"));
-		widgets.add(new Widget(456L, "Widget 2", Type.PARAGRAPH, 3, "This is the paragraph text."));
-		widgets.add(new Widget(567L, "Widget 4", Type.IMAGE, 100000, "", "https://picsum.photos/300/200", ""));
+		widgets.add(new Widget(234L, "Widget 2", Type.LINK, 1, "Link to gaana.com", "https://gaana.com/", ""));
+		widgets.add(new Widget(345L, "Widget 3", Type.LIST, 2, "This is list text", "This is list text", "UNORDERED"));
+		widgets.add(new Widget(456L, "Widget 4", Type.PARAGRAPH, 3, "This is the paragraph text."));
+		widgets.add(new Widget(567L, "Widget 5", Type.IMAGE, 100000, "", "https://picsum.photos/300/200", ""));
 	}
 
 	public List<Widget> createWidget(Widget widget) {
