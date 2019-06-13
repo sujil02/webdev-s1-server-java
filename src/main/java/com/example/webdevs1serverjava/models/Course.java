@@ -18,10 +18,6 @@ public class Course {
 	@OneToMany(mappedBy = "parentCourse", orphanRemoval = true)
 	private List<Module> modules = new ArrayList<Module>();
 
-	@ManyToOne
-	@JsonIgnore
-	private Faculty author;
-
 
 	public List<Module> getModules() {
 		return modules;
@@ -31,13 +27,6 @@ public class Course {
 		this.modules = modules;
 	}
 
-	public Faculty getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Faculty author) {
-		this.author = author;
-	}
 
 	public Integer getId() {
 		return id;
