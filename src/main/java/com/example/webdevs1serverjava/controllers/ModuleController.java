@@ -46,7 +46,7 @@ public class ModuleController {
 		return moduleService.createModule(cid,module);
 	}
 	@PutMapping("/api/courses/{courseId}/modules")
-	public Iterable<Module> updateModule(@PathVariable("courseId") Integer cid,@RequestBody Module module) {
+	public Iterable<Module> Module(@PathVariable("courseId") Integer cid,@RequestBody Module module) {
 		return moduleService.updateModule(cid,module);
 	}
 	
