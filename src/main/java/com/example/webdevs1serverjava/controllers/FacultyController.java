@@ -29,9 +29,5 @@ public class FacultyController {
     public void authoredCourse(
             @PathVariable("fid") Long facultyId,
             @PathVariable("cid") Integer courseId) {
-//        Faculty faculty = repository.findById(facultyId).get();
-//        Course course = courseRepository.findById(courseId).get();
-//        course.setAuthor(faculty);
-//        courseRepository.save(course);
     }
 }
