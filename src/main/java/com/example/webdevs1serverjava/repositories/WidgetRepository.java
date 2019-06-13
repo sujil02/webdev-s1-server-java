@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.webdevs1serverjava.models.Widget;
 
-public interface WidgetRepository extends CrudRepository<Widget, Integer> {
+public interface WidgetRepository extends CrudRepository<Widget, Long> {
 
 }

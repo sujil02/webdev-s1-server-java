@@ -34,7 +34,7 @@ public class CourseController {
     }
     @GetMapping("/api/courses/{CourseId}")
 	public Course findWidgetById(@PathVariable("CourseId") Integer cid) {
-    	return courseService.findById(cid);
+    	return courseService.findCourseById(cid);
 		
 	}
     

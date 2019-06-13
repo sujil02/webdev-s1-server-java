@@ -8,7 +8,10 @@ import com.example.webdevs1serverjava.models.Widget;
 import com.example.webdevs1serverjava.repositories.CourseRepository;
 import com.example.webdevs1serverjava.repositories.WidgetRepository;
 import com.example.webdevs1serverjava.services.WidgetService;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -24,8 +27,8 @@ public class WidgetController {
 	}
 
 	@PutMapping("/api/widgets")
-	public List<Widget> updateAllWidget(@RequestBody List<Widget> newWidgets) {
-		return widgetService.updateAllWidget(newWidgets);
+	public Iterable<Widget> updateAllWidget(@RequestBody List<Widget> newWidgets) {
+		return repository.saveAll(newWidgets);
 	}
 
 	@GetMapping("/api/widgets")
@@ -35,8 +38,8 @@ public class WidgetController {
 	}
 
 	@GetMapping("/api/widgets/{widgetId}")
-	public Widget findWidgetById(@PathVariable("widgetId") Integer wid) {
-		return widgetService.findWidgetById(wid);
+	public Optional<Widget> findWidgetById(@PathVariable("widgetId") long wid) {
+		return repository.findById(wid);
 	}
 
 	@PutMapping("/api/widgets/{widgetId}")
@@ -45,7 +48,8 @@ public class WidgetController {
 	}
 
 	@DeleteMapping("/api/widgets/{widgetId}")
-	public List<Widget> deleteWidget(@PathVariable("widgetId") long wid) {
-		return widgetService.deleteWidget(wid);
+	public Iterable<Widget> deleteWidget(@PathVariable("widgetId") long wid) {
+		 repository.deleteById(wid);
+		 return findAllWidgets();
 	}
 }

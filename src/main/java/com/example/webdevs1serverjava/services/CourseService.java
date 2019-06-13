@@ -38,7 +38,7 @@ public class CourseService {
 	UserService userService = new UserService();
 
 	public Iterable<Course> updateCourse(Integer cid, Course newCourse) {
-		Course course = findById(cid);
+		Course course = findCourseById(cid);
 		course.setTitle(newCourse.getTitle());
 		courseRepository.save(course);
 		return findAllCourses();
@@ -48,7 +48,7 @@ public class CourseService {
 		return courseRepository.findAll();
 	}
 
-	public Course findById(Integer cid) {
+	public Course findCourseById(Integer cid) {
 		return  courseRepository.findById(cid).get();
 	}
 
