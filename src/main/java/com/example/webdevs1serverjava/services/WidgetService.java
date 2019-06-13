@@ -3,28 +3,28 @@ package com.example.webdevs1serverjava.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.webdevs1serverjava.model.Type;
-import com.example.webdevs1serverjava.model.Widget;
+import com.example.webdevs1serverjava.models.Type;
+import com.example.webdevs1serverjava.models.Widget;
 
 public class WidgetService {
-
+//	public Widget(long id, String name, Type type, String text, Integer size, String title, String href, Integer choice, String items, String src) {
 	static List<Widget> widgets = new ArrayList<Widget>();
 	static {
-		widgets.add(new Widget(123L, "Widget 1", Type.HEADING, 0, "Heading One", "1"));
-		widgets.add(new Widget(234L, "Widget 2", Type.LINK, 1, "Link to gaana.com", "https://gaana.com/", ""));
-		widgets.add(new Widget(345L, "Widget 3", Type.LIST, 2, "This is list text", "This is list text", "UNORDERED"));
-		widgets.add(new Widget(456L, "Widget 4", Type.PARAGRAPH, 3, "This is the paragraph text."));
-		widgets.add(new Widget(567L, "Widget 5", Type.IMAGE, 100000, "", "https://picsum.photos/300/200", ""));
+		widgets.add(new Widget(123, "Widget 1", Type.HEADING, "Heading One", 1, "heading 1","",0,"","",0));
+		widgets.add(new Widget(234, "Widget 1", Type.LINK, "Link to gaana.com", 0, "Link to gaana.com","https://gaana.com/",0,"","",1));
+		widgets.add(new Widget(345, "Widget 1", Type.LIST, "List One", 0, "List","",0,"","",2));
+		widgets.add(new Widget(456, "Widget 1", Type.PARAGRAPH, "Paragraph One", 0, "Paragraph","",0,"","",3));
+		widgets.add(new Widget(567, "Widget 1", Type.IMAGE, "Image One", 0, "heading 1","",0,"","https://picsum.photos/300/200",100000));
 	}
 
 	public List<Widget> createWidget(Widget widget) {
 		int maxOrderNow = 0;
 		for(Widget w:widgets) {
-			if(w.getOrder() != 100000 && w.getOrder()>maxOrderNow) {
-				maxOrderNow = w.getOrder();			}
+			if(w.getWidgetOrder() != 100000 && w.getWidgetOrder()>maxOrderNow) {
+				maxOrderNow = w.getWidgetOrder();			}
 		}
-		widgets.get(widgets.size()-1).setOrder(maxOrderNow+1);
-		widget.setOrder(100000);
+		widgets.get(widgets.size()-1).setWidgetOrder(maxOrderNow+1);
+		widget.setWidgetOrder(100000);
 		widgets.add(widget);
 		return widgets;
 	}
@@ -62,7 +62,7 @@ public class WidgetService {
 				break;
 			}
 		}
-		widgets.get(widgets.size()-1).setOrder(100000);
+		widgets.get(widgets.size()-1).setWidgetOrder(100000);
 		return widgets;
 	}
 }

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.webdevs1serverjava.model.Role;
-import com.example.webdevs1serverjava.model.User;
+import com.example.webdevs1serverjava.models.Role;
+import com.example.webdevs1serverjava.models.User;
 
 @RestController
 public class UserController {
@@ -27,12 +27,12 @@ public class UserController {
 
 	}
 
-	@GetMapping("/api/users")
+	@GetMapping("/users")
 	public List<User> findAllUsers() {
 		return userArrayList;
 	}
 
-	@DeleteMapping("api/users/{userId}")
+	@DeleteMapping("users/{userId}")
 	public List<User> deleteUser(@PathVariable("userId") long userId) {
 		User u = null;
 		for (User user : userArrayList) {
@@ -44,14 +44,14 @@ public class UserController {
 		return userArrayList;
 	}
 
-	@PostMapping("/api/users")
+	@PostMapping("/users")
 	public List<User> create(@RequestBody User user) {
 		userArrayList.add(new User(user.getId(), user.getUsername(), user.getPassword(), user.getFirstName(),
 				user.getLastName(), user.getRole()));
 		return userArrayList;
 	}
 	
-	@PutMapping("/api/users")
+	@PutMapping("/users")
 	public List<User> update(@RequestBody User updateuser) {
 		for (User user : userArrayList) {
 			if (user.getId() == updateuser.getId()) {

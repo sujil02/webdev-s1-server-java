@@ -1,8 +1,12 @@
 package com.example.webdevs1serverjava.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.webdevs1serverjava.model.Widget;
+import com.example.webdevs1serverjava.models.Course;
+import com.example.webdevs1serverjava.models.Widget;
+import com.example.webdevs1serverjava.repositories.CourseRepository;
+import com.example.webdevs1serverjava.repositories.WidgetRepository;
 import com.example.webdevs1serverjava.services.WidgetService;
 import java.util.List;
 
@@ -10,10 +14,13 @@ import java.util.List;
 @CrossOrigin
 public class WidgetController {
 	private static WidgetService widgetService = new WidgetService();
+	@Autowired
+	WidgetRepository repository;
 
 	@PostMapping("/api/widgets")
-	public List<Widget> createWidget(@RequestBody Widget widget) {
-		return widgetService.createWidget(widget);
+	public Iterable<Widget> createWidget(@RequestBody Widget widget) {
+		repository.save(widget);
+		return findAllWidgets();
 	}
 
 	@PutMapping("/api/widgets")
@@ -22,8 +29,9 @@ public class WidgetController {
 	}
 
 	@GetMapping("/api/widgets")
-	public List<Widget> findAllWidgets() {
-		return widgetService.findAllWidgets();
+	public Iterable<Widget> findAllWidgets() {
+		// return widgetService.findAllWidgets();
+		return repository.findAll();
 	}
 
 	@GetMapping("/api/widgets/{widgetId}")
