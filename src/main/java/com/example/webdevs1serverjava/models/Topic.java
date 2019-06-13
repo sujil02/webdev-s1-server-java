@@ -17,7 +17,7 @@ public class Topic {
 	@JsonIgnore
 	private Lesson lesson;
 	
-	@OneToMany(mappedBy="topic")
+	@OneToMany(mappedBy="topic", orphanRemoval = true)
 	private List<Widget> widgets = new ArrayList<Widget>(); 
 	
 	public Integer getId() {

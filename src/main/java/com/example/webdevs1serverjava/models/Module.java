@@ -13,7 +13,7 @@ public class Module {
 	private Integer id;
 	private String title;
 	
-	@OneToMany(mappedBy="module", fetch = FetchType.EAGER, orphanRemoval = true)
+	@OneToMany(mappedBy="module", orphanRemoval = true)
 	List<Lesson> lessons = new ArrayList<Lesson>();
 	
 	@ManyToOne()

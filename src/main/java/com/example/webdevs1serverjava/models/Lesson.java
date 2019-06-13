@@ -18,7 +18,7 @@ public class Lesson {
 	@JsonIgnore
 	private Module module;
 	
-	@OneToMany(mappedBy="lesson")
+	@OneToMany(mappedBy="lesson", orphanRemoval = true)
 	List<Topic> topics = new ArrayList<Topic>();
 	
 	public Integer getId() {

@@ -15,7 +15,7 @@ public class Course {
 	private Integer id;
 	private String title;
 
-	@OneToMany(mappedBy = "parentCourse")
+	@OneToMany(mappedBy = "parentCourse", orphanRemoval = true)
 	private List<Module> modules = new ArrayList<Module>();
 
 	@ManyToOne
