@@ -154,18 +154,16 @@ public class Widget {
 		this.widgetOrder = widgetOrder;
 	}
 
-	/**
-	 * @return the topic
-	 */
-	public Topic getTopic() {
-		return topic;
-	}
 
-	/**
-	 * @param topic the topic to set
-	 */
+	public Topic getTopic() {
+		return this.topic;
+	}
+	
 	public void setTopic(Topic topic) {
 		this.topic = topic;
+		if(!topic.getWidgets().contains(this)) {
+			topic.getWidgets().add(this);
+		}
 	}
 
 }
